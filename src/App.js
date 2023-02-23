@@ -1,12 +1,10 @@
-import './App.css';
-import Banner from './Component/banner';
-import Home from './Component/home';
+import "./App.css";
+import Dashboard from "./Component/Dashboard";
 
 function App() {
   return (
     <div>
-      <Banner />
-      <Home/>
+      <Dashboard />
     </div>
   );
 }
