@@ -30,7 +30,7 @@ const Home = () => {
   ];
   const [open, setOpen] = useState(true);
   return (
-    <section className="flex gap-6">
+    <section className="flex">
       <BrowserRouter>
         <div
           className={`bg-[#0e0e0e] h-screen ${

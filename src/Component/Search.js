@@ -17,7 +17,7 @@ export const Search = () => {
   };
 
   return (
-    <div className="flex items-center my-4 border-2 rounded-md relative z-50  min-w-full bg-white border-neutral-2 ">
+    <div className="flex items-center my-4 border-2 rounded-md relative z-50 w-72 max-w-full bg-white border-neutral-2 ">
       <input
         type="text"
         value={Input}
