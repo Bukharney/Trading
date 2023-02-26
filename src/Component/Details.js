@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./Card";
+import ThemeContext from "../context/ThemeContext";
 
 const Details = ({ details }) => {
   const detailslist = {
@@ -15,6 +16,8 @@ const Details = ({ details }) => {
   const convertMillionToBillion = (value) => {
     return (value / 1000).toFixed(2) + "B";
   };
+
+  const { darkMode } = React.useContext(ThemeContext);
   return (
     <Card>
       <ul className=" w-full h-full flex flex-col justify-between divide-y-1">
@@ -25,7 +28,11 @@ const Details = ({ details }) => {
               className="flex-1 flex justify-between items-center py-2"
             >
               <span className="text-gray-500">{detailslist[key]}</span>
-              <span className="text-gray-900">
+              <span
+                className={`display: inline ${
+                  darkMode ? "text-gray-300" : "text-gray-900"
+                }`}
+              >
                 {key === "marketCapitalization"
                   ? convertMillionToBillion(details[key])
                   : details[key]}

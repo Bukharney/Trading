@@ -1,12 +1,16 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Home from "./Pages/Home";
+import ThemeContext from "./context/ThemeContext";
+import { useState } from "react";
+import Home from "./pages/Home";
+import Dashboard from "./component/Dashboard";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <div>
+    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       <Home />
-    </div>
+    </ThemeContext.Provider>
   );
 }
 
