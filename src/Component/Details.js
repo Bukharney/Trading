@@ -20,7 +20,7 @@ const Details = ({ details }) => {
   const { darkMode } = React.useContext(ThemeContext);
   return (
     <Card>
-      <ul className=" w-full h-full flex flex-col justify-between divide-y-1">
+      <ul className="w-full h-full flex flex-col justify-between divide-y-1">
         {Object.keys(detailslist).map((key) => {
           return (
             <li

@@ -10,9 +10,9 @@ import Sidebar from "../component/Sidebar";
 const Home = () => {
   return (
     <BrowserRouter>
-      <div className="flex flex-1">
+      <div className="flex flex-1 flex-row">
         <Sidebar />
-        <div className="flex flex-1">
+        <div className="h-screen w-full overflow-y-auto">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/user" element={<Pnf />} />
