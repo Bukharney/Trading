@@ -2,22 +2,31 @@ import { React, useState } from "react";
 import { mockSeachResult } from "../constans/mock";
 import { SearchIcon, XIcon } from "@heroicons/react/solid";
 import SearchResult from "./SearchResult";
+import { getSearchResult } from "../api/stock_api";
 
 export const Search = () => {
   const [Input, setInput] = useState("");
-  const [Result, setResult] = useState(mockSeachResult.result);
+  const [Result, setResult] = useState([]);
 
   const clear = () => {
     setInput("");
     setResult([]);
   };
 
-  const updateResult = () => {
-    setResult(mockSeachResult.result);
+  const updateResult = async () => {
+    try {
+      if (Input) {
+        const result = await getSearchResult(Input);
+        setResult(result.result);
+      }
+    } catch (e) {
+      setResult([]);
+      console.log(e);
+    }
   };
 
   return (
-    <div className="flex items-center my-4 border-2 rounded-md relative z-50 w-72 max-w-full bg-white border-neutral-2 ">
+    <div className="flex items-center my-4 border-2 rounded-md relative z-50 w-96 max-w-full bg-white border-neutral-2 ">
       <input
         type="text"
         value={Input}
@@ -25,7 +34,6 @@ export const Search = () => {
         placeholder="Serach stock..."
         onChange={(e) => {
           setInput(e.target.value);
-          setResult(mockSeachResult.result);
         }}
         onKeyDown={(e) => (e.key === "Enter" ? updateResult() : null)}
       />

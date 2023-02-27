@@ -11,6 +11,8 @@ import { mockStockCandle } from "../constans/mock";
 import { convertUnixTimestampToDate } from "../helper/date_helper";
 import Card from "./Card";
 import ThemeContext from "../context/ThemeContext";
+import { chartConfig } from "../constans/config";
+import Chartfilter from "./Chartfilter";
 
 const Chart = () => {
   const { darkMode } = React.useContext(ThemeContext);
@@ -28,6 +30,21 @@ const Chart = () => {
 
   return (
     <Card>
+      <ul className="flex absolute top-2 right-2 z-40">
+        {Object.keys(chartConfig).map((key) => {
+          return (
+            <li key={key}>
+              <Chartfilter
+                text={key}
+                active={fillter === key}
+                onClick={() => {
+                  setFillter(key);
+                }}
+              />
+            </li>
+          );
+        })}
+      </ul>
       <ResponsiveContainer>
         <AreaChart data={formatData(data)}>
           <defs>
