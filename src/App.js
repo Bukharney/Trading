@@ -1,4 +1,3 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import ThemeContext from "./context/ThemeContext";
 import StockContext from "./context/StockContext";
@@ -8,11 +7,11 @@ import Dashboard from "./component/Dashboard";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [stock, setStock] = useState("FB");
+  const [stockSymbol, setStockSymbol] = useState("FB");
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
-      <StockContext.Provider value={{ stock, setStock }}>
-        <Home />
+      <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
+        <Dashboard />
       </StockContext.Provider>
     </ThemeContext.Provider>
   );

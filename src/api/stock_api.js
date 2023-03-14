@@ -14,7 +14,7 @@ export const getSearchResult = async (searchQuery) => {
 
 export const getStockDetails = async (symbol) => {
   const response = await fetch(
-    `${basePath}/stock/profile2?symbol=${symbol}&token=${process.env.REACT_APP_API_KEY}`
+    `${basePath}/stock/profile2?symbol=${symbol}&token=cfrgt6pr01qhg1urgm0gcfrgt6pr01qhg1urgm10`
   );
 
   if (!response.ok) {
@@ -27,7 +27,7 @@ export const getStockDetails = async (symbol) => {
 
 export const getStockQuote = async (symbol) => {
   const response = await fetch(
-    `${basePath}/quote?symbol=${symbol}&token=${process.env.REACT_APP_API_KEY}`
+    `${basePath}/quote?symbol=${symbol}&token=cfrgt6pr01qhg1urgm0gcfrgt6pr01qhg1urgm10`
   );
 
   if (!response.ok) {

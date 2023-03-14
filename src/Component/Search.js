@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { mockSeachResult } from "../constans/mock";
 import { SearchIcon, XIcon } from "@heroicons/react/solid";
 import SearchResult from "./SearchResult";
 import { getSearchResult } from "../api/stock_api";
@@ -16,6 +15,7 @@ export const Search = () => {
   const updateResult = async () => {
     try {
       if (Input) {
+        console.log("update : " + Input);
         const result = await getSearchResult(Input);
         setResult(result.result);
       }
