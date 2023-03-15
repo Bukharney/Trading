@@ -21,7 +21,7 @@ const Overview = ({ symbol, price, change, changePercent, currency }) => {
         >
           {change > 0 ? "+" : ""}
           {change} ({change > 0 ? "+" : ""}
-          {changePercent}%)
+          {changePercent.toFixed(2)}%)
         </span>
       </div>
     </Card>
