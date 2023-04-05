@@ -1,9 +1,11 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import { SearchIcon, XIcon } from "@heroicons/react/solid";
 import SearchResult from "./SearchResult";
 import { getSearchResult } from "../api/stock_api";
+import ThemeContext from "../context/ThemeContext";
 
 export const Search = () => {
+  const { darkMode } = useContext(ThemeContext);
   const [Input, setInput] = useState("");
   const [Result, setResult] = useState([]);
 
@@ -26,11 +28,15 @@ export const Search = () => {
   };
 
   return (
-    <div className="flex items-center my-4 border-2 rounded-md relative z-50 w-96 max-w-full bg-white border-neutral-2 ">
+    <div
+      className={`flex items-center my-4 border-2 rounded-md relative z-50 w-96 max-w-full border-neutral-2 `}
+    >
       <input
         type="text"
         value={Input}
-        className="w-full px-4 py-2 focus:outline-none rounded-md"
+        className={`w-full px-4 py-2 focus:outline-none rounded-md  ${
+          darkMode ? "bg-gray-900 text-gray-300" : "bg-neutral-100"
+        }`}
         placeholder="Serach stock..."
         onChange={(e) => {
           setInput(e.target.value);

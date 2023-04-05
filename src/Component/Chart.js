@@ -41,7 +41,6 @@ const Chart = () => {
 
       const endDate = new Date();
       const startDate = createDate(-years, -months, -weeks, -days, endDate);
-      console.log("startdate" + startDate);
 
       const startUnixTimestamp = convertDateToUnixTimestamp(startDate);
       const endUnixTimestamp = convertDateToUnixTimestamp(endDate);

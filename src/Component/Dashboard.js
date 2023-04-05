@@ -44,7 +44,7 @@ const Dashboard = () => {
 
   return (
     <div
-      className={`flex flex-1 flex-col overflow-y-auto ${
+      className={`flex flex-1 flex-col overflow-y-auto min-h-screen ${
         darkMode ? "bg-gray-900 text-gray-300" : "bg-neutral-100"
       }`}
     >
